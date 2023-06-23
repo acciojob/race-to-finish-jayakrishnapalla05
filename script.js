@@ -14,7 +14,7 @@ for(let i=0; i<5; i++)
 Promise.any(promises)
        .then((item) =>{
 		   const Element=document.getElementById("output");
-		   item.textContent=Element;
+		   Element.textContent=item;
 	   })
        .catch((error) =>{
 		   console.error(error);
