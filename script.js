@@ -25,4 +25,3 @@ Promise.any(promises)
   .catch((error) => {
     console.error('Error:', error);
   });
-0 comments on commit a2b49c9 
