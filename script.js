@@ -6,7 +6,7 @@ for(let i=0; i<5; i++)
 		const randomTime=Math.floor(Math.random()*5)+1;
 		const prom=new Promise((resolve, reject) =>{
 			setTimeOut(() =>{
-				resolve(`Promise is resolved after ${randomTime} seconds`);
+				resolve(`Promise resolved after ${randomTime} seconds`);
 			}, randomTime*1000);
 		});
 		promises.push(prom);
