@@ -1,27 +1,22 @@
 window.promises = [];
 
 
-const promises = [
-  new Promise((resolve) => setTimeout(() => resolve('Promise 1 resolved'), getRandomTime())),
-  new Promise((resolve) => setTimeout(() => resolve('Promise 2 resolved'), getRandomTime())),
-  new Promise((resolve) => setTimeout(() => resolve('Promise 3 resolved'), getRandomTime())),
-  new Promise((resolve) => setTimeout(() => resolve('Promise 4 resolved'), getRandomTime())),
-  new Promise((resolve) => setTimeout(() => resolve('Promise 5 resolved'), getRandomTime()))
-];
+for (let i = 0; i < 5; i++) {
+  const delay = Math.floor(Math.random() * 5) + 1; // Generate random delay between 1 and 5 seconds
 
-// Function to get random time between 1 and 5 seconds
-function getRandomTime() {
-  return Math.floor(Math.random() * 5000) + 1000; // Random number between 1000 and 6000 (1 to 5 seconds)
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Promise ${i + 1} resolved after ${delay} seconds`);
+    }, delay * 1000);
+  });
+
+  promises.push(promise);
 }
-
-
-
-// Using Promise.any() to wait for the first resolved promise
 Promise.any(promises)
   .then((result) => {
-    const outputDiv = document.getElementById('output');
-    outputDiv.textContent = result;
+    const outputElement = document.getElementById("output");
+    outputElement.innerText = result;
   })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error(error);
   });
