@@ -12,9 +12,9 @@ for(let i=0; i<5; i++)
 		promises.push(prom);
 	}
 Promise.any(promises)
-       .then((res) =>{
-		   const res=document.getElementById("output");
-		   res.textContent=res;
+       .then((item) =>{
+		   const Element=document.getElementById("output");
+		   item.textContent=Element;
 	   })
        .catch((error) =>{
 		   console.error(error);
